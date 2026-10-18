@@ -22,7 +22,16 @@ export default function Hero() {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col px-5 pt-10 pb-16">
+      <div className="relative mx-auto flex max-w-6xl flex-col px-5 pt-6 pb-16">
+        {/* top identity bar */}
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex items-center gap-2 font-mono text-sm">
+            <span className="text-accent">◆</span>
+            <span className="text-neutral-200">{profile.name}</span>
+          </div>
+          <span className="chip">{profile.location}</span>
+        </div>
+
         {/* COVER banner: live K-Means */}
         <div className="card overflow-hidden">
           <div className="h-40 w-full sm:h-56">
@@ -72,6 +81,15 @@ export default function Hero() {
             Download CV
           </a>
         </div>
+
+        {/* scroll cue */}
+        <a
+          href="#about"
+          className="mt-12 inline-flex flex-col items-center gap-1 self-start font-mono text-[10px] uppercase tracking-[0.3em] text-neutral-600 transition-colors hover:text-accent"
+        >
+          Scroll
+          <span className="animate-bounce">↓</span>
+        </a>
       </div>
     </header>
   );

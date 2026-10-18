@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Reveal, { SectionTag } from "@/components/Reveal";
+import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 import { profile } from "@/data/profile";
 
 /** Certifications & Education with a holographic tilt + light-sweep on hover. */
@@ -28,7 +29,7 @@ export default function Certifications() {
 
   return (
     <section id="credentials" className="mx-auto max-w-6xl px-5 py-24">
-      <SectionTag index="06" label="Certifications & Education" />
+      <SectionHeading index="06" kicker="Credentials" title="Certifications & Education" subtitle="Continuous learning across data, engineering and security." />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.06}>

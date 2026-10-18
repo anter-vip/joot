@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { SectionTag } from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 // synthetic retail dataset, grouped by region
 const DATA: Record<string, { label: string; sales: number; units: number }[]> = {
@@ -44,8 +44,8 @@ export default function DashboardShowcase() {
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-24">
-      <SectionTag index="05" label="Dashboard Showcase" />
-      <div className="card p-6">
+      <SectionHeading index="05" kicker="Live Demo" title="Dashboard Showcase" subtitle="Filter by segment and metric — a taste of the Al-Basira BI experience." />
+      <div className="card border-gradient p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap gap-2">
             {regions.map((r) => (

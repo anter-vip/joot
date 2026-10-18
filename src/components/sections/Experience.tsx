@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SectionTag } from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 import { profile } from "@/data/profile";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +43,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="mx-auto max-w-6xl px-5 py-24">
-      <SectionTag index="02" label="Experience" />
+      <SectionHeading index="02" kicker="Career" title="Experience" subtitle={profile.role} />
       <div ref={root} className="relative pl-8">
         <div className="tl-line absolute left-2 top-2 h-[calc(100%-1rem)] w-[2px] bg-gradient-to-b from-[#00E5FF] via-[#7C3AED] to-transparent" />
         <div className="space-y-8">

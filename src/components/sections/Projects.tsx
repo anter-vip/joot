@@ -1,13 +1,14 @@
 "use client";
 
 import SortingCanvas from "@/animations/SortingCanvas";
-import Reveal, { SectionTag } from "@/components/Reveal";
+import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 import { profile } from "@/data/profile";
 
 export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-5 py-24">
-      <SectionTag index="03" label="Featured Projects" />
+      <SectionHeading index="03" kicker="Portfolio" title="Featured Projects" subtitle={profile.featuredNote} />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {profile.projects.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.08} className="h-full">

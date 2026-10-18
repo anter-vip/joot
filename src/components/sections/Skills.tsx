@@ -1,7 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import ForceGraph from "@/animations/ForceGraph";
-import Reveal, { SectionTag } from "@/components/Reveal";
+import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 import { profile } from "@/data/profile";
 
 export default function Skills() {
@@ -9,10 +11,15 @@ export default function Skills() {
 
   return (
     <section id="skills" className="mx-auto max-w-6xl px-5 py-24">
-      <SectionTag index="04" label="Skills" />
+      <SectionHeading
+        index="04"
+        kicker="Stack"
+        title="Skills"
+        subtitle="A force-directed map of the tools I reach for — drag a node, hover to trace relations."
+      />
       <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         <Reveal>
-          <div className="card p-3">
+          <div className="card border-gradient p-3">
             <div className="mono-label px-2 pt-1">drag a node · hover to trace relations</div>
             <div className="h-[360px] w-full sm:h-[440px]">
               <ForceGraph nodes={profile.skills.graph} edges={edges} />
@@ -27,13 +34,16 @@ export default function Skills() {
               {profile.skills.bars.map((b) => (
                 <div key={b.label}>
                   <div className="mb-1 flex justify-between text-sm">
-                    <span className="text-white/75">{b.label}</span>
-                    <span className="font-mono text-white/45">{b.pct}%</span>
+                    <span className="text-neutral-300">{b.label}</span>
+                    <span className="font-mono text-neutral-500">{b.pct}%</span>
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-white/5">
-                    <div
+                    <motion.div
                       className="h-full rounded-full bg-gradient-to-r from-[#00E5FF] to-[#7C3AED]"
-                      style={{ width: `${b.pct}%` }}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${b.pct}%` }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
                     />
                   </div>
                 </div>
